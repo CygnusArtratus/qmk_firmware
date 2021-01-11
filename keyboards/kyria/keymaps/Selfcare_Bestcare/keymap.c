@@ -486,7 +486,6 @@ void dance_atsctrl_reset(qk_tap_dance_state_t *state, void *user_data) {
 
 
 
-
 // Register all the tap dance sequences
 qk_tap_dance_action_t tap_dance_actions[] = {
 [TD_CLN] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_cln_finished, dance_cln_reset),

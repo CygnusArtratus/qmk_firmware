@@ -21,7 +21,6 @@
 #endif
 
 #ifdef RGBLIGHT_ENABLE
-  #define RGBLIGHT_ANIMATIONS
   #define RGBLIGHT_HUE_STEP 8
   #define RGBLIGHT_SAT_STEP 8
   #define RGBLIGHT_VAL_STEP 8
@@ -35,3 +34,9 @@
 
 #    define LAPO_KEYS KC_LGUI, KC_LSFT, KC_LBRC
 #    define RAPC_KEYS KC_RGUI, KC_LSFT, KC_RBRC
+
+// Konmari-ing the firmware
+#define NO_ACTION_ONESHOT
+#define DISABLE_LEADER
+#define NO_ACTION_MACRO
+#define NO_ACTION_FUNCTION
