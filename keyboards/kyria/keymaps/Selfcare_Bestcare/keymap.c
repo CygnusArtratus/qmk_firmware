@@ -426,20 +426,20 @@ static tap xtap_state = {
   void dance_exsalt_finished(qk_tap_dance_state_t *state, void *user_data) {
     xtap_state.state = cur_dance(state);
     switch (xtap_state.state) {
-        case SINGLE_TAP: register_code(S(KC_1)); break;
+        case SINGLE_TAP: register_code16(KC_EXCLAIM); break;
         case SINGLE_HOLD: register_code(KC_LALT); break;
         case DOUBLE_TAP: register_code(KC_LBRC); break;
         // Last case is for fast typing. When you want to send !! not [
-        case DOUBLE_SINGLE_TAP: tap_code(S(KC_1)); register_code(S(KC_1));
+        case DOUBLE_SINGLE_TAP: tap_code16(KC_EXCLAIM); register_code16(KC_EXCLAIM);
           }
 }
 
 void dance_exsalt_reset(qk_tap_dance_state_t *state, void *user_data) {
     switch (xtap_state.state) {
-        case SINGLE_TAP: unregister_code(S(KC_1)); break;
+        case SINGLE_TAP: unregister_code16(KC_EXCLAIM); break;
         case SINGLE_HOLD: unregister_code(KC_LALT); break;
         case DOUBLE_TAP: unregister_code(KC_LBRC); break;
-        case DOUBLE_SINGLE_TAP: unregister_code(S(KC_1));
+        case DOUBLE_SINGLE_TAP: unregister_code16(S(KC_1));
     }
     xtap_state.state = 0;
 }
@@ -449,20 +449,20 @@ void dance_exsalt_reset(qk_tap_dance_state_t *state, void *user_data) {
   void dance_atsctrl_finished(qk_tap_dance_state_t *state, void *user_data) {
     xtap_state.state = cur_dance(state);
     switch (xtap_state.state) {
-        case SINGLE_TAP: register_code16(S(KC_2)); break;
+        case SINGLE_TAP: register_code16(KC_AT); break;
         case SINGLE_HOLD: register_code(KC_LCTRL); break;
         case DOUBLE_TAP: register_code(KC_RBRC); break;
         // Last case is for fast typing. When you want to send @@ not ]
-        case DOUBLE_SINGLE_TAP: tap_code(S(KC_2)); register_code(S(KC_2));
+        case DOUBLE_SINGLE_TAP: tap_code16(KC_AT); register_code16(KC_AT);
     }
 }
 
 void dance_atsctrl_reset(qk_tap_dance_state_t *state, void *user_data) {
     switch (xtap_state.state) {
-        case SINGLE_TAP: unregister_code16(S(KC_2)); break;
+        case SINGLE_TAP: unregister_code16(KC_AT); break;
         case SINGLE_HOLD: unregister_code(KC_LCTRL); break;
         case DOUBLE_TAP: unregister_code(KC_RBRC); break;
-        case DOUBLE_SINGLE_TAP: unregister_code(S(KC_2));
+        case DOUBLE_SINGLE_TAP: unregister_code16(KC_AT);
     }
     xtap_state.state = 0;
 }
@@ -483,6 +483,7 @@ void dance_atsctrl_reset(qk_tap_dance_state_t *state, void *user_data) {
               }
       xtap_state.state = 0;
   }
+
 
 
 
