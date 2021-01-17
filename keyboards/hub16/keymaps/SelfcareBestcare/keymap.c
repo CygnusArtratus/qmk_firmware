@@ -57,7 +57,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     // Tap once to toggle macro layer, tap twice to toggle LED layer
     [TD_LAYER_TOGGLE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_layertoggle_finished, dance_layertoggle_reset),
     [TD_DOTEQUALS] = ACTION_TAP_DANCE_DOUBLE(KC_KP_EQUAL, KC_KP_DOT),
-
+};
 
 // Layers
 
@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_MACRO] = LAYOUT(
 
 
-//
+/*
 * .-----------------------.
 * |  vol  |       | zoom  |
 * |       |       |       |
@@ -111,10 +111,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
 
         KC_TRNS,     KC_TRNS,
-    KC_TRNS, KC_, KC_, TG(_BASE),
-    HYPR(KC_F16), HYPR(KC_F19), KC_, KC_RIGHT,
+    KC_TRNS, KC_NO, KC_NO, TG(_BASE),
+    HYPR(KC_F16), HYPR(KC_F19), KC_NO, KC_RIGHT,
     HYPR(KC_F15), HYPR(KC_F18), KC_UP, KC_DOWN,
-    HYPR(KC_F14), HYPR(KC_F17), KC_, KC_LEFT
+    HYPR(KC_F14), HYPR(KC_F17), KC_NO, KC_LEFT
   ),
 
 
@@ -122,8 +122,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           KC_NO,            KC_NO,
     KC_TRNS, RGB_MOD, RGB_RMOD, TG(_BASE),
     RGB_VAD, RGB_VAI, RGB_HUD,  RGB_HUI,
-    RGB_SAD, RGB_SAI, _______,  _______,
-    RGB_TOG, _______, RESET,    _______
+    RGB_SAD, RGB_SAI, KC_NO,  KC_NO,
+    RGB_TOG, KC_NO, RESET,   KC_NO
   ),
 };
 
@@ -136,11 +136,9 @@ void encoder_update_user(uint8_t index, bool clockwise) {
         }
     } else if (index == 1) { /* Right Encoder */
         if (clockwise) {
-            tap_code16(LGUI(LALT(KC_EQUAL));
+            tap_code16(LGUI(LALT(KC_EQUAL)));
         } else {
-            tap_code16(LGUI(LALT(KC_MINUS));
+            tap_code16(LGUI(LALT(KC_MINUS)));
         }
     }
-}
-}
 };
